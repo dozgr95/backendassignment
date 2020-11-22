@@ -3,15 +3,22 @@ module Api
     module V1
         class NotificationsController < ApplicationController
             protect_from_forgery with: :null_session
+            
+            # get all notifications
             def index
               render json: Notification.all
             end
             
+            # get notifications for a client
             def show
-                notification = Notification.find(params[:id])
-                render json: notification
+                client = Client.find(params[:id])
+                notifications = Notification.all
+                client_notifications = notifications
+                    .select { |notification| client.companies.include? notification.company }
+                render json: client_notifications
             end
 
+            # patch /id -> marks a notification as read
             def update
                 notification = Notification.find(params[:id])
                 notification.update(
