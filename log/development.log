@@ -9858,3 +9858,1734 @@ puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
 puma (3.12.6) lib/puma/server.rb:476:in `process_client'
 puma (3.12.6) lib/puma/server.rb:334:in `block in run'
 puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2542959740713201950)[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateClients (20201122151539)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (40.4ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "companies" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201122151539"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCompanies (20201122151843)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2542959740713201950)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2542959740713201950)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCompanies (20201122151843)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.8ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201122151843"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2542959740713201950)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2542959740713201950)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddCompanyToNotification (20201122152834)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.1ms)[0m  [1m[35mALTER TABLE "notifications" ADD "company" integer[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201122152834"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2542959740713201950)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glencore"], ["created_at", "2020-11-22 16:06:14.273586"], ["updated_at", "2020-11-22 16:06:14.273586"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Syngenta"], ["created_at", "2020-11-22 16:06:14.279461"], ["updated_at", "2020-11-22 16:06:14.279461"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "LafargeHolcim"], ["created_at", "2020-11-22 16:06:14.281698"], ["updated_at", "2020-11-22 16:06:14.281698"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "clients" ("companies", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["companies", "---\n- 1\n- 2\n"], ["created_at", "2020-11-22 16:06:14.299298"], ["updated_at", "2020-11-22 16:06:14.299298"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "clients" ("companies", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["companies", "---\n- 3\n"], ["created_at", "2020-11-22 16:06:14.303455"], ["updated_at", "2020-11-22 16:06:14.303455"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "clients" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-11-22 16:06:14.306604"], ["updated_at", "2020-11-22 16:06:14.306604"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "clients" ("companies", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["companies", "---\n- 1\n- 2\n- 3\n"], ["created_at", "2020-11-22 16:06:14.308849"], ["updated_at", "2020-11-22 16:06:14.308849"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2020-11-22 17:17:53 +0100
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (1.9ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 382ms (Views: 358.6ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/notifications/new" for ::1 at 2020-11-22 17:18:12 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (59.8ms)
+Completed 200 OK in 143ms (Views: 139.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/notifications/new" for ::1 at 2020-11-22 17:18:28 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 68ms (Views: 64.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:18:29 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/new" for ::1 at 2020-11-22 17:18:50 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 109ms (Views: 100.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:18:51 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/notifications" for ::1 at 2020-11-22 17:19:05 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PCCoWaYUjed7daCB9F3EqPZzHE3rjPzZGqxuEYMwPqpk7p7TroZholGsdxK7CvGjxMiIz5NIhHqWKPjl5FfJxQ==", "notification"=>{"title"=>"Syngenta", "description"=>"was removed, luckily", "company"=>"2", "active"=>"true"}, "commit"=>"Create"}
+Unpermitted parameter: :company
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 61ms (Views: 56.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 17:19:12 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HeYyeyl69+inAdWjVk8dHeFIq26ZwF0BECq7umsTesRFKATxIegbrY3YAjAZGCgW0/M/7OEEJaKcri1ODHSNqw==", "notification"=>{"title"=>"Syngenta", "description"=>"was removed, luckily", "company"=>"2", "active"=>"true"}, "commit"=>"Create"}
+Unpermitted parameter: :company
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 67ms (Views: 62.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 17:19:49 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F4WdWtlYHq4cVR29r3Tp3b9UXwMxKMsl32e9CDGwGi9PS6vQ0cry6zaMyi7gI9zWje/LgUnss4ZT4yv8VtftQA==", "notification"=>{"title"=>"Syngenta", "description"=>"was removed, luckily", "company"=>"2", "active"=>"true"}, "commit"=>"Create"}
+Unpermitted parameter: :company
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 85ms (Views: 59.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/notifications" for ::1 at 2020-11-22 17:19:51 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 77ms (Views: 70.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:19:52 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/new" for ::1 at 2020-11-22 17:19:56 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 58ms (Views: 55.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 17:20:15 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"waZMOULUszjSAbjEFJk6MQCReqdFTpDQRMW9so7g5K0cvqyVGaMzt90zAQQzGwZV/dHkXIZ310HjHm+XzAHfXA==", "notification"=>{"title"=>"Yo Syngenta was removed", "description"=>"luckily removed lol", "company"=>"2", "active"=>"true"}, "commit"=>"Create"}
+Unpermitted parameter: :company
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 67ms (Views: 62.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/notifications" for ::1 at 2020-11-22 17:22:02 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 105ms (Views: 87.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:22:03 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/new" for ::1 at 2020-11-22 17:22:04 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 81ms (Views: 77.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 17:22:12 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3K7luGPwrwmrjhNr7I0j8WSVhJousUjhFVBllYrt9P4BtgUUOIcvhqS8qqvLDx+VmdUaYe2ID3Cyi7ewyAzPDw==", "notification"=>{"title"=>"Syngenta", "description"=>"was removed", "company"=>"2", "active"=>"true", "date"=>"2020-11-22 17:22:04 +0100"}, "commit"=>"Create"}
+Unpermitted parameter: :date
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (7.9ms)[0m  [1m[32mINSERT INTO "notifications" ("title", "description", "active", "created_at", "updated_at", "company") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Syngenta"], ["description", "was removed"], ["active", "t"], ["created_at", "2020-11-22 16:22:12.148429"], ["updated_at", "2020-11-22 16:22:12.148429"], ["company", 2]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/notifications/15
+Completed 302 Found in 16ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/notifications/15" for ::1 at 2020-11-22 17:22:12 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 74ms (Views: 59.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/notifications/15" for ::1 at 2020-11-22 17:23:16 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 60ms (Views: 53.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:23:17 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/new" for ::1 at 2020-11-22 17:23:22 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 76ms (Views: 72.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 17:23:26 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2q0GOvV3jEEcU3C1nWlJa5kkyQj4nQlYEiWNkg00eB4HteaWrgAMzhNhyXW663UPZGRX8zukTsm1/l+3T9VD7w==", "notification"=>{"title"=>"sdijf", "description"=>"klasdfasfd", "company"=>"2", "active"=>"true", "date"=>"2020-11-22 17:23:22 +0100"}, "commit"=>"Create"}
+Unpermitted parameter: :date
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "notifications" ("title", "description", "active", "created_at", "updated_at", "company") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "sdijf"], ["description", "klasdfasfd"], ["active", "t"], ["created_at", "2020-11-22 16:23:27.027851"], ["updated_at", "2020-11-22 16:23:27.027851"], ["company", 2]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/notifications/16
+Completed 302 Found in 6ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/notifications/16" for ::1 at 2020-11-22 17:23:27 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 57ms (Views: 52.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notifications/16" for ::1 at 2020-11-22 17:24:11 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 65ms (Views: 59.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:24:12 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/new" for ::1 at 2020-11-22 17:24:12 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 81ms (Views: 74.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 17:24:19 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BvOEoK8cJE/IDr/6JfFRrvEM7oWPSZo+LALAfXHVLgXb62QM9GukwMc8BjoCc23KDExwfkxw3a+L2RJYMzQV9A==", "notification"=>{"title"=>"asdjlfhj", "description"=>"asldjfjlasdf", "company"=>"2", "active"=>"true", "date"=>"2020-11-22T17:24:12+01:00"}, "commit"=>"Create"}
+Unpermitted parameter: :date
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "notifications" ("title", "description", "active", "created_at", "updated_at", "company") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "asdjlfhj"], ["description", "asldjfjlasdf"], ["active", "t"], ["created_at", "2020-11-22 16:24:19.416600"], ["updated_at", "2020-11-22 16:24:19.416600"], ["company", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/notifications/17
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/notifications/17" for ::1 at 2020-11-22 17:24:19 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 71ms (Views: 64.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-11-22 17:25:19 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 107ms (Views: 91.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:25:19 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/new" for ::1 at 2020-11-22 17:25:21 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 115ms (Views: 103.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 17:25:25 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SaaXS9Vy6fmRWjcmudzqoMyJ0cX2NsslYc+kvSqY6peUvnfnjgVpdp5ojuaeXtbEMclPPjUPjLTGFHaYaHnRZg==", "notification"=>{"title"=>"asdjf", "description"=>"asdflasdlfahlsdfhla", "company"=>"2", "active"=>"true"}, "commit"=>"Create"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "notifications" ("title", "description", "date", "active", "created_at", "updated_at", "company") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "asdjf"], ["description", "asdflasdlfahlsdfhla"], ["date", "2020-11-22"], ["active", "t"], ["created_at", "2020-11-22 16:25:25.966794"], ["updated_at", "2020-11-22 16:25:25.966794"], ["company", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/notifications/18
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/notifications/18" for ::1 at 2020-11-22 17:25:25 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 63ms (Views: 57.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/notifications/18" for ::1 at 2020-11-22 17:25:59 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 64ms (Views: 56.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:25:59 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/18" for ::1 at 2020-11-22 17:50:56 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 94ms (Views: 59.8ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:50:56 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-22 17:50:58 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 69ms (Views: 65.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-11-22 17:56:43 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (118.3ms)
+Completed 500 Internal Server Error in 140ms (ActiveRecord: 5.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `company_resolve' for #<#<Class:0x000000000d072328>:0x000000000d069ea8>):
+     6:     <p>Created At: <%= notification.created_at %> </p>
+     7:     <p>Updated At: <%= notification.updated_at %> </p>
+     8:     <p>New (unread): <%= notification.active %></p>
+     9:     <p>Company: <%= company_resolve(notification.company) %> </p><br><br>
+    10: <% end %>
+  
+app/views/notifications/index.html.erb:9:in `block in _app_views_notifications_index_html_erb__973438830_33040'
+app/views/notifications/index.html.erb:2:in `_app_views_notifications_index_html_erb__973438830_33040'
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:56:44 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-22 17:57:49 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.7ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 135ms (Views: 127.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:57:50 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-22 17:58:13 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (1.0ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 73ms (Views: 66.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 17:58:13 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-22 18:00:20 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  [1m[36mCompany Load (1.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  Rendered notifications/index.html.erb within layouts/application (20.8ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 6.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Company with 'id'=):
+  
+app/views/notifications/index.html.erb:9:in `block in _app_views_notifications_index_html_erb__973438830_35300'
+app/views/notifications/index.html.erb:2:in `_app_views_notifications_index_html_erb__973438830_35300'
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:00:20 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-22 18:01:08 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  Rendered notifications/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (C:/backendassignment/backendassignment/app/views/notifications/index.html.erb:12: syntax error, unexpected ')', expecting `end'
+        );@output_buffer.safe_append='...
+        ^
+C:/backendassignment/backendassignment/app/views/notifications/index.html.erb:15: syntax error, unexpected `ensure', expecting ')'
+          ensure
+          ^~~~~~
+C:/backendassignment/backendassignment/app/views/notifications/index.html.erb:17: syntax error, unexpected `end', expecting ')'
+          end
+          ^~~
+):
+  
+app/views/notifications/index.html.erb:12: syntax error, unexpected ')', expecting `end'
+app/views/notifications/index.html.erb:15: syntax error, unexpected `ensure', expecting ')'
+app/views/notifications/index.html.erb:17: syntax error, unexpected `end', expecting ')'
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:01:08 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-22 18:01:27 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  Rendered notifications/index.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (C:/backendassignment/backendassignment/app/views/notifications/index.html.erb:12: syntax error, unexpected ')', expecting `end'
+        );@output_buffer.safe_append='...
+        ^
+C:/backendassignment/backendassignment/app/views/notifications/index.html.erb:15: syntax error, unexpected `ensure', expecting ')'
+          ensure
+          ^~~~~~
+C:/backendassignment/backendassignment/app/views/notifications/index.html.erb:17: syntax error, unexpected `end', expecting ')'
+          end
+          ^~~
+):
+  
+app/views/notifications/index.html.erb:12: syntax error, unexpected ')', expecting `end'
+app/views/notifications/index.html.erb:15: syntax error, unexpected `ensure', expecting ')'
+app/views/notifications/index.html.erb:17: syntax error, unexpected `end', expecting ')'
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:01:27 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-22 18:01:36 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  [1m[36mCompany Load (0.7ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered notifications/index.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 114ms (Views: 109.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:01:37 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-22 18:02:03 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.7ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered notifications/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 70ms (Views: 64.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:02:04 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-22 18:02:56 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.8ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered notifications/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 69ms (Views: 63.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:02:57 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/new" for ::1 at 2020-11-22 18:02:58 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 49ms (Views: 45.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/notifications/new" for ::1 at 2020-11-22 18:03:31 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 65ms (Views: 62.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:03:32 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/new" for ::1 at 2020-11-22 18:03:37 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 60ms (Views: 57.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:03:38 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/notifications" for ::1 at 2020-11-22 18:03:48 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iAnbxoJ2jx66LVX/+yeHyGbaMwcfhphbvoDSBgFKMijQx+1MiuRjW5D0gmy0cLLDVGGnhWdC4PgyBETyZi3FRw==", "notification"=>{"title"=>"sdklsd", "description"=>"asdasdfasdf", "company"=>"3", "active"=>"true"}, "commit"=>"Create"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "notifications" ("title", "description", "date", "active", "created_at", "updated_at", "company") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "sdklsd"], ["description", "asdasdfasdf"], ["date", "2020-11-22"], ["active", "t"], ["created_at", "2020-11-22 17:03:48.642721"], ["updated_at", "2020-11-22 17:03:48.642721"], ["company", 3]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/notifications/19
+Completed 302 Found in 13ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/notifications/19" for ::1 at 2020-11-22 18:03:48 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  Rendered notifications/show.html.erb within layouts/application (161.7ms)
+Completed 500 Internal Server Error in 180ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `notification' for #<#<Class:0x000000000d072328>:0x000000000ff21778>
+Did you mean?  @notification):
+    1: <h1>Show Single Notification </h1>
+    2: <h3><%= @notification.title %></h3>
+    3: <p><%= @notification.description %></p>
+    4: <p>Company     <%= if notification.company 
+    5:     Company.find(notification.company).name 
+    6:     else ''
+    7:     end %> </p>
+  
+app/views/notifications/show.html.erb:4:in `_app_views_notifications_show_html_erb__928640874_41400'
+Started GET "/notifications/19" for ::1 at 2020-11-22 18:04:12 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered notifications/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 82ms (Views: 77.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:04:13 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/18" for ::1 at 2020-11-22 18:04:17 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered notifications/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 63ms (Views: 58.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:04:17 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/notifications/18" for ::1 at 2020-11-22 18:09:10 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered notifications/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 97ms (Views: 67.7ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:09:11 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/notifications" for ::1 at 2020-11-22 18:10:01 +0100
+Processing by Api::V1::NotificationsController#index as */*
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2542959740713201950)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddNameToClient (20201122171603)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "clients" ADD "name" character varying[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201122171603"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2542959740713201950)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glencore"], ["created_at", "2020-11-22 17:18:27.843711"], ["updated_at", "2020-11-22 17:18:27.843711"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Syngenta"], ["created_at", "2020-11-22 17:18:27.853586"], ["updated_at", "2020-11-22 17:18:27.853586"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "LafargeHolcim"], ["created_at", "2020-11-22 17:18:27.856382"], ["updated_at", "2020-11-22 17:18:27.856382"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "clients" ("companies", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["companies", "---\n- 1\n- 2\n"], ["created_at", "2020-11-22 17:18:27.875512"], ["updated_at", "2020-11-22 17:18:27.875512"], ["name", "Alfredo"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "clients" ("companies", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["companies", "---\n- 3\n"], ["created_at", "2020-11-22 17:18:27.879885"], ["updated_at", "2020-11-22 17:18:27.879885"], ["name", "Marcello"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "clients" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2020-11-22 17:18:27.883754"], ["updated_at", "2020-11-22 17:18:27.883754"], ["name", "Bob"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "clients" ("companies", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["companies", "---\n- 1\n- 2\n- 3\n"], ["created_at", "2020-11-22 17:18:27.887027"], ["updated_at", "2020-11-22 17:18:27.887027"], ["name", "Maria"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/notifications/2" for ::1 at 2020-11-22 18:19:10 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::NotificationsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mClient Load (0.9ms)[0m  [1m[34mSELECT "clients".* FROM "clients"[0m
+Completed 200 OK in 56ms (Views: 12.3ms | ActiveRecord: 9.8ms)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (5074.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "db/development_backend_assignment"[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (133.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "db/development_backend_assignment"[0m
+  [1m[35m (124.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "db/test_backend_assignment"[0m
+  [1m[35m (963.0ms)[0m  [1m[35mCREATE DATABASE "db/development_backend_assignment" ENCODING = 'utf8'[0m
+  [1m[35m (843.6ms)[0m  [1m[35mCREATE DATABASE "db/test_backend_assignment" ENCODING = 'utf8'[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients" CASCADE[0m
+  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "companies" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "companies" CASCADE[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "title" character varying, "description" text, "date" date, "active" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "company" integer)[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201122171603)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201119161624),
+(20201122151539),
+(20201122151843),
+(20201122152834);
+
+[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-22 17:20:48.508430"], ["updated_at", "2020-11-22 17:20:48.508430"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "clients" CASCADE[0m
+  [1m[35m (18.4ms)[0m  [1m[35mCREATE TABLE "clients" ("id" bigserial primary key, "companies" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "companies" CASCADE[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "notifications" CASCADE[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "title" character varying, "description" text, "date" date, "active" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "company" integer)[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201122171603)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201119161624),
+(20201122151539),
+(20201122151843),
+(20201122152834);
+
+[0m
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-22 17:20:48.686567"], ["updated_at", "2020-11-22 17:20:48.686567"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-11-22 17:20:48.693391"], ["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Glencore"], ["created_at", "2020-11-22 17:20:48.792343"], ["updated_at", "2020-11-22 17:20:48.792343"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Syngenta"], ["created_at", "2020-11-22 17:20:48.796913"], ["updated_at", "2020-11-22 17:20:48.796913"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "companies" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "LafargeHolcim"], ["created_at", "2020-11-22 17:20:48.799871"], ["updated_at", "2020-11-22 17:20:48.799871"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "clients" ("companies", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["companies", "---\n- 1\n- 2\n"], ["created_at", "2020-11-22 17:20:48.817567"], ["updated_at", "2020-11-22 17:20:48.817567"], ["name", "Alfredo"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "clients" ("companies", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["companies", "---\n- 3\n"], ["created_at", "2020-11-22 17:20:48.822152"], ["updated_at", "2020-11-22 17:20:48.822152"], ["name", "Marcello"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "clients" ("created_at", "updated_at", "name") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2020-11-22 17:20:48.825355"], ["updated_at", "2020-11-22 17:20:48.825355"], ["name", "Bob"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "clients" ("companies", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["companies", "---\n- 1\n- 2\n- 3\n"], ["created_at", "2020-11-22 17:20:48.828167"], ["updated_at", "2020-11-22 17:20:48.828167"], ["name", "Maria"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2542959740713201950)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2542959740713201950)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-11-22 18:21:59 +0100
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (1.0ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 283ms (Views: 264.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/notifications/new" for ::1 at 2020-11-22 18:22:02 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (39.5ms)
+Completed 200 OK in 124ms (Views: 107.2ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/" for ::1 at 2020-11-22 18:22:03 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  Rendered notifications/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 62ms (Views: 58.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notifications/new" for ::1 at 2020-11-22 18:22:04 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 58ms (Views: 53.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 18:22:10 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0b6vExbpWKkcr69Ty2ulUydqACHmp2b160takpGA0D8Mpk+/TZ7YJhOdFpPs6Zk32iqe2iWeIWRMkIi302Hrzg==", "notification"=>{"title"=>"first one", "description"=>"asdkfjaklsdf alksda sdf", "company"=>"1", "active"=>"true"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "notifications" ("title", "description", "date", "active", "created_at", "updated_at", "company") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "first one"], ["description", "asdkfjaklsdf alksda sdf"], ["date", "2020-11-22"], ["active", "t"], ["created_at", "2020-11-22 17:22:10.563463"], ["updated_at", "2020-11-22 17:22:10.563463"], ["company", 1]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/notifications/1
+Completed 302 Found in 12ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/notifications/1" for ::1 at 2020-11-22 18:22:10 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  [1m[36mCompany Load (0.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered notifications/show.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 91ms (Views: 66.9ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for ::1 at 2020-11-22 18:22:17 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered notifications/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 63ms (Views: 58.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/notifications/new" for ::1 at 2020-11-22 18:22:21 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 64ms (Views: 58.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-11-22 18:22:22 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered notifications/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 55ms (Views: 50.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/notifications/2" for ::1 at 2020-11-22 18:23:56 +0100
+Processing by Api::V1::NotificationsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mClient Load (1.0ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 404 Not Found in 46ms (ActiveRecord: 7.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Notification with 'id'=2):
+  
+app/controllers/api/v1/notifications_controller.rb:19:in `show'
+Started GET "/api/v1/notifications/2" for ::1 at 2020-11-22 18:24:23 +0100
+Processing by Api::V1::NotificationsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 0.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for ::1 at 2020-11-22 18:29:41 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered notifications/index.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 98ms (Views: 75.5ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:29:41 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-22 18:29:43 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered notifications/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 61ms (Views: 56.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/notifications/new" for ::1 at 2020-11-22 18:29:43 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 67ms (Views: 61.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 18:29:48 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hCc+YoViK/aLd83TAGrseP5wyKxPpMcHt0+4NLUVh2RZP97O3hWreYRFdBMn6NAcAzBWV4ydgJYQlGoR9/S8lQ==", "notification"=>{"title"=>"asdf", "description"=>"asdfasdf", "company"=>"3", "active"=>"true"}, "commit"=>"Create"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 53ms (Views: 49.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 18:29:52 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zUoR9+RxF3UqmPdjklxea/kCvGDxHL6IhL8WwscYIaaVhCd97OP7MABBIPDdC2tgy7ko4onYxisIO4A2oH/WyQ==", "notification"=>{"title"=>"asdfsd", "description"=>"asdfasdf", "company"=>"3", "active"=>"true"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "notifications" ("title", "description", "date", "active", "created_at", "updated_at", "company") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "asdfsd"], ["description", "asdfasdf"], ["date", "2020-11-22"], ["active", "t"], ["created_at", "2020-11-22 17:29:52.294979"], ["updated_at", "2020-11-22 17:29:52.294979"], ["company", 3]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/notifications/2
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/notifications/2" for ::1 at 2020-11-22 18:29:52 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered notifications/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 60ms (Views: 53.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/notifications/new" for ::1 at 2020-11-22 18:30:03 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 62ms (Views: 58.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 18:30:08 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ABqzNjODE2zgVst9YwVdMcCScgldQYBqethQlA4T7C7dAlOaaPST4+9kcr1Eh2FVPdLs8p54x/vdA4KxTPLX3w==", "notification"=>{"title"=>"adsfkl", "description"=>"asdlfkajlsdf", "company"=>"1", "active"=>"true"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "notifications" ("title", "description", "date", "active", "created_at", "updated_at", "company") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "adsfkl"], ["description", "asdlfkajlsdf"], ["date", "2020-11-22"], ["active", "t"], ["created_at", "2020-11-22 17:30:09.009483"], ["updated_at", "2020-11-22 17:30:09.009483"], ["company", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/notifications/3
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/notifications/3" for ::1 at 2020-11-22 18:30:09 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered notifications/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 56ms (Views: 49.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/notifications/2" for ::1 at 2020-11-22 18:30:19 +0100
+Processing by Api::V1::NotificationsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 6.9ms)
+
+
+  
+NoMethodError (undefined method `company' for #<Client:0x000000000d68c8a8>
+Did you mean?  companies):
+  
+app/controllers/api/v1/notifications_controller.rb:16:in `block in show'
+app/controllers/api/v1/notifications_controller.rb:16:in `show'
+Started GET "/notifications/3" for ::1 at 2020-11-22 18:32:48 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered notifications/show.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 92ms (Views: 63.5ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-11-22 18:32:49 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/v1/notifications/2" for ::1 at 2020-11-22 18:32:51 +0100
+Processing by Api::V1::NotificationsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+Completed 200 OK in 21ms (Views: 1.0ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/api/v1/notifications/2" for ::1 at 2020-11-22 18:33:04 +0100
+Processing by Api::V1::NotificationsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mClient Load (0.5ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+Completed 200 OK in 44ms (Views: 0.7ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/" for ::1 at 2020-11-22 18:33:31 +0100
+Processing by NotificationsController#index as HTML
+  Rendering notifications/index.html.erb within layouts/application
+  [1m[36mNotification Load (0.7ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCompany Load (0.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered notifications/index.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 130ms (Views: 119.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/notifications/new" for ::1 at 2020-11-22 18:33:34 +0100
+Processing by NotificationsController#new as HTML
+  Rendering notifications/new.html.erb within layouts/application
+  Rendered notifications/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 95ms (Views: 89.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notifications" for ::1 at 2020-11-22 18:33:41 +0100
+Processing by NotificationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MgJolwu1UPGvJewMSmJiKmCgu+4hENKDnxGPLduwO6/vGog7UMLQfqAXVcxt4F5OneAlFeIplRI4yl0ImVEAXg==", "notification"=>{"title"=>"ajdfdfas d", "description"=>"dkfjwefk wef wefh kef", "company"=>"3", "active"=>"true"}, "commit"=>"Create"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "notifications" ("title", "description", "date", "active", "created_at", "updated_at", "company") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "ajdfdfas d"], ["description", "dkfjwefk wef wefh kef"], ["date", "2020-11-22"], ["active", "t"], ["created_at", "2020-11-22 17:33:41.612623"], ["updated_at", "2020-11-22 17:33:41.612623"], ["company", 3]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/notifications/4
+Completed 302 Found in 7ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/notifications/4" for ::1 at 2020-11-22 18:33:41 +0100
+Processing by NotificationsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mNotification Load (0.4ms)[0m  [1m[34mSELECT  "notifications".* FROM "notifications" WHERE "notifications"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering notifications/show.html.erb within layouts/application
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered notifications/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 56ms (Views: 49.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/notifications/2" for ::1 at 2020-11-22 18:33:44 +0100
+Processing by Api::V1::NotificationsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/notifications/3" for ::1 at 2020-11-22 18:33:52 +0100
+Processing by Api::V1::NotificationsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mClient Load (0.8ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.6ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/v1/notifications/1" for ::1 at 2020-11-22 18:33:55 +0100
+Processing by Api::V1::NotificationsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mClient Load (0.3ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.3ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/notifications/4" for ::1 at 2020-11-22 18:34:01 +0100
+Processing by Api::V1::NotificationsController#show as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mClient Load (0.4ms)[0m  [1m[34mSELECT  "clients".* FROM "clients" WHERE "clients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mNotification Load (0.5ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications"[0m
+Completed 200 OK in 6ms (Views: 2.0ms | ActiveRecord: 0.9ms)
+
+
