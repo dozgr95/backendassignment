@@ -1,4 +1,4 @@
-
+require 'date'
 class NotificationsController < ApplicationController 
     def index
         @adminviewtitle = 'Admin view for all Notifications'
@@ -16,6 +16,7 @@ class NotificationsController < ApplicationController
 
     def create
         @notification = Notification.new(notification_params)
+        @notification.date = DateTime.now
         if(@notification.save)
             redirect_to @notification
         else
@@ -23,7 +24,12 @@ class NotificationsController < ApplicationController
         end        
     end
 
+    def company_resolve
+        @company = Client.find(params[:company])
+        render @company.name
+    end
+
     private def notification_params
-        params.require(:notification).permit(:title, :description, :active, :date)
+        params.require(:notification).permit(:title, :description, :active, :company, :date)
     end
 end

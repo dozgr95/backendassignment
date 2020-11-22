@@ -3,7 +3,12 @@
     Notification Nr. <%=notification.id%>: 
     <h3><%= notification.title %></h3>
     <p><%= notification.description %><p>
-    <p>Created At: <%= notification.created_at %> <p>
+    <p>Created At: <%= notification.created_at %> </p>
     <p>Updated At: <%= notification.updated_at %> </p>
-    <p>New (unread): <%= notification.active %></p><br><br>
+    <p>New (unread): <%= notification.active %></p>
+    <p>Company:  
+    <%= if notification.company 
+        Company.find(notification.company).name 
+        else ''
+        end %> </p><br><br>
 <% end %>

@@ -16,6 +16,11 @@
         <%= f.text_area :description, size: "60x12" %>
     </p>
     <p>
+        <%= f.label :company_ID %><br>
+        <%= f.text_field :company %><br>
+        e.g. 1 for Glencore, 2 for Syngenta, 3 for LafargeHolcim...
+    </p> 
+    <p>
         <%= f.hidden_field :active, value: true %>
         <%= f.submit "Create" %>
     </p>
